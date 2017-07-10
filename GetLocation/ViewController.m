@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "JCLocation.h"
 @interface ViewController ()
 
 @end
@@ -17,6 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)starlocation:(id)sender {
+    NSLog(@"tag");
+    [JCLocation getUserLocationMsg:^(NSString *lonAndLatStr, NSString *address, NSString *distance) {
+        NSLog(@"longtitude latitude = %@, address = %@, distance = %@",lonAndLatStr,address,distance);
+    }];    
+}
+
+- (IBAction)stoplocation:(id)sender {
+    [JCLocation stopGetUserLoc];
 }
 
 
